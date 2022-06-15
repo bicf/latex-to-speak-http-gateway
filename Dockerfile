@@ -12,7 +12,7 @@ ENV CHOKIDAR_USEPOLLING true
 
 VOLUME /var/lib/ltshg
 
-RUN yarn global add express-gateway@$LTSHG_VERSION
+RUN yarn global add latex-to-speak-http-gateway@$LTSHG_VERSION
 
 COPY ./src /var/lib/ltshg
 
