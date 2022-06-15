@@ -1,6 +1,6 @@
 {
   "name": "latex-to-speak-http-gateway",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "HTTP service that convert LaTeX to readable text",
   "main": "index.js",
   "author": "Ivan Buttinoni",
@@ -17,5 +17,12 @@
     "multer": "^1.4.4",
     "speech-rule-engine": "^4.0.2",
     "xml2js": "^0.4.23"
-  }
+  },
+  "homepage": "https://github.com/bicf/latex-to-speak-http-gateway",
+  "bugs": "https://github.com/bicf/latex-to-speak-http-gateway/issues",
+  "repository": {
+    "url": "https://github.com/bicf/latex-to-speak-http-gateway.git",
+    "type": "git"
+  },
+  "private": false
 }
