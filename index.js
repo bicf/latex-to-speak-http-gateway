@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs')
 
 const app = express();
 app.use(bodyParser.json());
@@ -101,6 +102,17 @@ app.post('/', (req, res) => {
                 });
         }).catch(err => console.log("Err: %o",err));
     }).catch(err => console.log("Err: %o",err));
+});
+
+app.get('/', (req, res) => {
+    fs.readFile('package.json', 'utf8' , (err, data) => {
+        if (err) {
+            console.error(err)
+            return;
+        }
+        res.send(data);
+    })
+
 });
 
 app.listen(port, () => {
