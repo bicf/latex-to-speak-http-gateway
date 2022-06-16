@@ -1,19 +1,16 @@
-FROM node:10-alpine
+FROM node:14-alpine
 
-ARG LTSHG_VERSION
+# create app directory
+WORKDIR /opt/ltshg
 
-ENV NODE_ENV production
-ENV NODE_PATH /usr/local/share/.config/yarn/global/node_modules/
+# install the depences
+RUN yarn install
 
-ENV LTSHG_CONFIG_DIR /var/lib/ltshg
+# copy all files
+COPY . .
 
-# Enable chokidar polling so hot-reload mechanism can work on docker or network volumes
-ENV CHOKIDAR_USEPOLLING true
-
-VOLUME /var/lib/ltshg
-
-RUN yarn global add latex-to-speak-http-gateway@$LTSHG_VERSION
-
-COPY ./src /var/lib/ltshg
-
+# open the port
 EXPOSE 48001
+
+# run the server
+CMD [ "node", "index.js" ]
