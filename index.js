@@ -62,7 +62,14 @@ sre = require('speech-rule-engine');
  */
 
 app.post('/', (req, res) => {
-    let sreConfig ={}, rv=[];
+    let rv=[],
+        sreConfig ={
+            locale: "en",
+            domain: "default",
+            markup: "none",
+            modality: "speech",
+        }
+    ;
     // populate the config from query string
     sreParams.forEach(param => {
         if(typeof req.query[param] == "undefined"){
