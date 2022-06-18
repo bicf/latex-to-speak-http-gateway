@@ -33,42 +33,278 @@ Listening on port 48001
 
 Detailed options for  _locale_, _modality_, _domain_ and _style_.
 
-| locale | modality | domain     | style
-|-------|----------|------------|---------------------------------------------------------
-|base   | speech   | mathspeak  | brief, default, sbrief
-|it     | speech   | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant
-|       |          |            | Bar_Auto, Bar_Conjugate
-|       |          |            | Caps_Auto, Caps_SayCaps
-|       |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute
-|       |          |            | Currency_Auto, Currency_Position, Currency_Prefix
-|       |          |            | Ellipses_Auto, Ellipses_AndSoOn
-|       |          |            | Enclosed_Auto
-|       |          |            | Exponent_Auto, Exponent_AfterPower, Exponent_Ordinal, Exponent_OrdinalPower
-|       |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per
-|       |          |            | Functions_Auto, Functions_None, Functions_Reciprocal
-|       |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None
-|       |          |            | Log_Auto, Log_LnAsNaturalLog
-|       |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector
-|       |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step
-|       |          |            | MultiLineOverview_Auto, MultiLineOverview_None
-|       |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short
-|       |          |            | MultsymbolDot_Auto
-|       |          |            | MultsymbolX_Auto
-|       |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel
-|       |          |            | Prime_Auto, Prime_Angle, Prime_Length
-|       |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd
-|       |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_Member
-|       |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll
-|       |          |            | TriangleSymbol_Auto, TriangleSymbol_Delta
-|       |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse, Trig_Reciprocal
-|       |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat
-|       |          | mathspeak  | brief, default, sbrief
-|       |          | default    | alternative, default, plural
-|       | prefix   | default    | default
-|       | summary  | default    | default
-|       |          | mathspeak  | brief, sbrief
 
+## Options [SRE v4](https://github.com/Speech-Rule-Engine/speech-rule-engine/wiki/Options/) 
 
+| locale | modality | domain     | style |
+| ------ | -------- | ---------- | ----- |
+| en     | speech   | chromevox  | default |
+|        |          | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant |
+|        |          |            | Bar_Auto, Bar_Conjugate |
+|        |          |            | Caps_Auto, Caps_SayCaps |
+|        |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute |
+|        |          |            | Currency_Auto, Currency_Position, Currency_Prefix |
+|        |          |            | Ellipses_Auto, Ellipses_AndSoOn |
+|        |          |            | Enclosed_Auto, Enclosed_EndEnclose |
+|        |          |            | Exponent_Auto, Exponent_AfterPower, Exponent_Ordinal, Exponent_OrdinalPower |
+|        |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per |
+|        |          |            | Functions_Auto, Functions_None |
+|        |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None |
+|        |          |            | Log_Auto, Log_LnAsNaturalLog |
+|        |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector |
+|        |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step |
+|        |          |            | MultiLineOverview_Auto, MultiLineOverview_None |
+|        |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short |
+|        |          |            | MultsymbolDot_Auto, MultsymbolDot_Dot |
+|        |          |            | MultsymbolX_Auto, MultsymbolX_By, MultsymbolX_Cross |
+|        |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel |
+|        |          |            | Prime_Auto, Prime_Angle, Prime_Length |
+|        |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd |
+|        |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_Member, SetMemberSymbol_In |
+|        |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll |
+|        |          |            | TriangleSymbol_Auto, TriangleSymbol_Delta |
+|        |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse |
+|        |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat |
+|        |          | emacspeak  | default |
+|        |          | mathspeak  | brief, default, sbrief |
+|        |          | default    | alternative, default, physics, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| ca     | speech   | mathspeak  | brief, default, sbrief |
+|        |          | default    | default, defaultMP, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| da     | speech   | mathspeak  | brief, default, sbrief |
+|        |          | default    | TriangleSymbol_Delta, default, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| de     | speech   | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant |
+|        |          |            | Bar_Auto, Bar_Conjugate |
+|        |          |            | Caps_Auto, Caps_SayCaps |
+|        |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute |
+|        |          |            | Currency_Auto, Currency_Position, Currency_Prefix |
+|        |          |            | Ellipses_Auto, Ellipses_AndSoOn |
+|        |          |            | Enclosed_Auto |
+|        |          |            | Exponent_Auto, Exponent_Ordinal, Exponent_OrdinalPower, Exponent_Exponent |
+|        |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per |
+|        |          |            | Functions_Auto, Functions_None |
+|        |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None |
+|        |          |            | Log_Auto, Log_LnAsNaturalLog |
+|        |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector |
+|        |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step |
+|        |          |            | MultiLineOverview_Auto, MultiLineOverview_None |
+|        |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short |
+|        |          |            | MultsymbolDot_Auto |
+|        |          |            | MultsymbolX_Auto |
+|        |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel |
+|        |          |            | Prime_Auto, Prime_Angle, Prime_Length |
+|        |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd |
+|        |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_In |
+|        |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll |
+|        |          |            | TriangleSymbol_Auto, TriangleSymbol_Delta |
+|        |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse |
+|        |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat |
+|        |          | mathspeak  | brief, default, sbrief |
+|        |          | default    | alternative, default, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| es     | speech   | mathspeak  | brief, default, sbrief |
+|        |          | default    | default, defaultMP, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| fr     | speech   | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant |
+|        |          |            | Bar_Auto, Bar_Conjugate |
+|        |          |            | Caps_Auto, Caps_SayCaps |
+|        |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute |
+|        |          |            | Currency_Auto, Currency_Position, Currency_Prefix |
+|        |          |            | Ellipses_Auto, Ellipses_AndSoOn |
+|        |          |            | Enclosed_Auto |
+|        |          |            | Exponent_Auto, Exponent_Ordinal |
+|        |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per |
+|        |          |            | Functions_Auto, Functions_None, Functions_Reciprocal |
+|        |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None |
+|        |          |            | Log_Auto, Log_LnAsNaturalLog |
+|        |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector |
+|        |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step |
+|        |          |            | MultiLineOverview_Auto, MultiLineOverview_None |
+|        |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short |
+|        |          |            | MultsymbolDot_Auto |
+|        |          |            | MultsymbolX_Auto |
+|        |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel |
+|        |          |            | Prime_Auto, Prime_Angle, Prime_Length |
+|        |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd |
+|        |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_In |
+|        |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll |
+|        |          |            | TriangleSymbol_Auto, TriangleSymbol_Delta |
+|        |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse, Trig_Reciprocal |
+|        |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat |
+|        |          | mathspeak  | brief, default, sbrief |
+|        |          | default    | alternative, default, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| hi     | speech   | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant |
+|        |          |            | Bar_Auto, Bar_Conjugate |
+|        |          |            | Caps_Auto, Caps_SayCaps |
+|        |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute |
+|        |          |            | Currency_Auto, Currency_Position, Currency_Prefix |
+|        |          |            | Ellipses_Auto, Ellipses_AndSoOn |
+|        |          |            | Enclosed_Auto |
+|        |          |            | Exponent_Auto, Exponent_AfterPower, Exponent_Ordinal, Exponent_OrdinalPower |
+|        |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per |
+|        |          |            | Functions_Auto, Functions_None |
+|        |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None |
+|        |          |            | Log_Auto, Log_LnAsNaturalLog |
+|        |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector |
+|        |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step |
+|        |          |            | MultiLineOverview_Auto, MultiLineOverview_None |
+|        |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short |
+|        |          |            | MultsymbolDot_Auto, MultsymbolDot_Dot |
+|        |          |            | MultsymbolX_Auto |
+|        |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel |
+|        |          |            | Prime_Auto, Prime_Angle, Prime_Length |
+|        |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd |
+|        |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_Member, SetMemberSymbol_In |
+|        |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll |
+|        |          |            | TriangleSymbol_Auto, TriangleSymbol_Delta |
+|        |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse |
+|        |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat |
+|        |          | mathspeak  | brief, default, sbrief |
+|        |          | default    | default, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| it     | speech   | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant |
+|        |          |            | Bar_Auto, Bar_Conjugate |
+|        |          |            | Caps_Auto, Caps_SayCaps |
+|        |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute |
+|        |          |            | Currency_Auto, Currency_Position, Currency_Prefix |
+|        |          |            | Ellipses_Auto, Ellipses_AndSoOn |
+|        |          |            | Enclosed_Auto |
+|        |          |            | Exponent_Auto, Exponent_AfterPower, Exponent_Ordinal, Exponent_OrdinalPower |
+|        |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per |
+|        |          |            | Functions_Auto, Functions_None, Functions_Reciprocal |
+|        |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None |
+|        |          |            | Log_Auto, Log_LnAsNaturalLog |
+|        |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector |
+|        |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step |
+|        |          |            | MultiLineOverview_Auto, MultiLineOverview_None |
+|        |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short |
+|        |          |            | MultsymbolDot_Auto |
+|        |          |            | MultsymbolX_Auto |
+|        |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel |
+|        |          |            | Prime_Auto, Prime_Angle, Prime_Length |
+|        |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd |
+|        |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_Member, SetMemberSymbol_In |
+|        |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll |
+|        |          |            | TriangleSymbol_Auto, TriangleSymbol_Delta |
+|        |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse, Trig_Reciprocal |
+|        |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat |
+|        |          | mathspeak  | brief, default, sbrief |
+|        |          | default    | alternative, default, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| nb     | speech   | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant |
+|        |          |            | Bar_Auto, Bar_Conjugate |
+|        |          |            | Caps_Auto, Caps_SayCaps |
+|        |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute |
+|        |          |            | Currency_Auto, Currency_Position, Currency_Prefix |
+|        |          |            | Ellipses_Auto, Ellipses_AndSoOn |
+|        |          |            | Enclosed_Auto, Enclosed_EndEnclose |
+|        |          |            | Exponent_Auto, Exponent_AfterPower, Exponent_Ordinal, Exponent_OrdinalPower |
+|        |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per |
+|        |          |            | Functions_Auto, Functions_None |
+|        |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None |
+|        |          |            | Log_Auto, Log_LnAsNaturalLog |
+|        |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector |
+|        |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step |
+|        |          |            | MultiLineOverview_Auto, MultiLineOverview_None |
+|        |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short |
+|        |          |            | MultsymbolDot_Auto |
+|        |          |            | MultsymbolX_Auto |
+|        |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel |
+|        |          |            | Prime_Auto, Prime_Angle, Prime_Length |
+|        |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd |
+|        |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_Member, SetMemberSymbol_In |
+|        |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll |
+|        |          |            | TriangleSymbol_Auto |
+|        |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse |
+|        |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat |
+|        |          | mathspeak  | brief, default, sbrief |
+|        |          | default    | TriangleSymbol_Delta, default, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| nn     | speech   | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant |
+|        |          |            | Bar_Auto, Bar_Conjugate |
+|        |          |            | Caps_Auto, Caps_SayCaps |
+|        |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute |
+|        |          |            | Currency_Auto, Currency_Position, Currency_Prefix |
+|        |          |            | Ellipses_Auto, Ellipses_AndSoOn |
+|        |          |            | Enclosed_Auto, Enclosed_EndEnclose |
+|        |          |            | Exponent_Auto, Exponent_AfterPower, Exponent_Ordinal, Exponent_OrdinalPower |
+|        |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per |
+|        |          |            | Functions_Auto, Functions_None |
+|        |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None |
+|        |          |            | Log_Auto, Log_LnAsNaturalLog |
+|        |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector |
+|        |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step |
+|        |          |            | MultiLineOverview_Auto, MultiLineOverview_None |
+|        |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short |
+|        |          |            | MultsymbolDot_Auto |
+|        |          |            | MultsymbolX_Auto |
+|        |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel |
+|        |          |            | Prime_Auto, Prime_Angle, Prime_Length |
+|        |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd |
+|        |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_Member, SetMemberSymbol_In |
+|        |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll |
+|        |          |            | TriangleSymbol_Auto |
+|        |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse |
+|        |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat |
+|        |          | mathspeak  | brief, default, sbrief |
+|        |          | default    | default, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| sv     | speech   | clearspeak | AbsoluteValue_Auto, AbsoluteValue_AbsEnd, AbsoluteValue_Cardinality, AbsoluteValue_Determinant |
+|        |          |            | Bar_Auto, Bar_Conjugate |
+|        |          |            | Caps_Auto, Caps_SayCaps |
+|        |          |            | CombinationPermutation_Auto, CombinationPermutation_ChoosePermute |
+|        |          |            | Currency_Auto, Currency_Position, Currency_Prefix |
+|        |          |            | Ellipses_Auto, Ellipses_AndSoOn |
+|        |          |            | Enclosed_Auto, Enclosed_EndEnclose |
+|        |          |            | Exponent_Auto, Exponent_AfterPower, Exponent_Ordinal, Exponent_OrdinalPower, Exponent_Exponent |
+|        |          |            | Fraction_Auto, Fraction_EndFrac, Fraction_FracOver, Fraction_General, Fraction_GeneralEndFrac, Fraction_Ordinal, Fraction_Over, Fraction_OverEndFrac, Fraction_Per |
+|        |          |            | Functions_Auto, Functions_None |
+|        |          |            | ImpliedTimes_Auto, ImpliedTimes_MoreImpliedTimes, ImpliedTimes_None |
+|        |          |            | Log_Auto, Log_LnAsNaturalLog |
+|        |          |            | Matrix_Auto, Matrix_Combinatoric, Matrix_EndMatrix, Matrix_EndVector, Matrix_SilentColNum, Matrix_SpeakColNum, Matrix_Vector |
+|        |          |            | MultiLineLabel_Auto, MultiLineLabel_Case, MultiLineLabel_Constraint, MultiLineLabel_Equation, MultiLineLabel_None, MultiLineLabel_Row, MultiLineLabel_Step |
+|        |          |            | MultiLineOverview_Auto, MultiLineOverview_None |
+|        |          |            | MultiLinePausesBetweenColumns_Auto, MultiLinePausesBetweenColumns_Long, MultiLinePausesBetweenColumns_Short |
+|        |          |            | MultsymbolDot_Auto |
+|        |          |            | MultsymbolX_Auto |
+|        |          |            | Paren_Auto, Paren_CoordPoint, Paren_Interval, Paren_Silent, Paren_Speak, Paren_SpeakNestingLevel |
+|        |          |            | Prime_Auto, Prime_Angle, Prime_Length |
+|        |          |            | Roots_Auto, Roots_PosNegSqRoot, Roots_PosNegSqRootEnd, Roots_RootEnd |
+|        |          |            | SetMemberSymbol_Auto, SetMemberSymbol_Belongs, SetMemberSymbol_Element, SetMemberSymbol_Member, SetMemberSymbol_In |
+|        |          |            | Sets_Auto, Sets_SilentBracket, Sets_woAll |
+|        |          |            | TriangleSymbol_Auto |
+|        |          |            | Trig_Auto, Trig_ArcTrig, Trig_TrigInverse |
+|        |          |            | VerticalLine_Auto, VerticalLine_Divides, VerticalLine_Given, VerticalLine_SuchThat |
+|        |          | mathspeak  | brief, default, sbrief |
+|        |          | default    | TriangleSymbol_Delta, default, plural |
+|        | prefix   | default    | default |
+|        | summary  | default    | default |
+|        |          | mathspeak  | brief, sbrief |
+| nemeth | braille  | default    | default |
+|        | speech   | default    | default, defaultLibLouis, other, uncontracted |
 
 
 
