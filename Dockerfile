@@ -4,7 +4,7 @@ FROM node:14-alpine
 WORKDIR /opt/ltshg
 
 # install the depences
-RUN yarn install
+RUN yarn add latex-to-speak-http-gateway
 
 # copy all files
 COPY . .
@@ -13,4 +13,4 @@ COPY . .
 EXPOSE 48001
 
 # run the server
-CMD [ "node", "index.js" ]
+CMD [ "nodejs", "node_modules/latex-to-speak-http-gateway/index.js" ]
