@@ -1,6 +1,6 @@
 {
   "name": "latex-to-speak-http-gateway",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "HTTP service that convert LaTeX to readable text",
   "main": "index.js",
   "author": "Ivan Buttinoni",
@@ -14,6 +14,7 @@
     "esm": "^3.2.25",
     "express": "^4.18.1",
     "mathjax": "3",
+    "multer": "^1.4.5-lts.1",
     "speech-rule-engine": "^4.0.2",
     "xml2js": "^0.4.23"
   },
