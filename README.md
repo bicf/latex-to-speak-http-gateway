@@ -4,7 +4,7 @@ HTTP service that convert LaTeX to readable text using speech-rule-engine and Ma
 
 ## Usage
 
-### Yarn package
+### as Yarn package
 ```BASH
 mkdir ltshg
 cd ltshg
@@ -17,6 +17,90 @@ When the server starts show the listening port.
 Listening on port 48001
 
 ```
+
+### as Docker package
+```BASH
+docker pull fortyeightthousand/latex-to-speak-http-gateway:v1
+docker run -d -p 48001:48001 --name ltshg fortyeightthousand/latex-to-speak-http-gateway:v1
+```
+
+When the docker starts show the container ID.
+```TXT
+1eab4ce1....
+
+```
+### as Docker build
+```BASH
+git clone https://github.com/bicf/latex-to-speak-http-gateway.git
+cd latex-to-speak-http-gateway
+docker build . -t fortyeightthousand/latex-to-speak-http-gateway:local
+docker run -d -p 48001:48001 --name ltshg fortyeightthousand/latex-to-speak-http-gateway:local
+```
+
+When the docker starts show the container ID.
+```TXT
+1eab4ce1....
+
+```
+
+## examples
+
+### simple call 
+```SHELL
+curl -s -X POST \
+ -H "Accept:application/json"  \
+ -H "Content-Type:application/json" \
+ -d '[{"latex":"\\frac{2}{3}"}]' \
+  'http://127.0.0.1:48001/'
+```
+
+### Simple answer
+```JSON
+[
+  {
+    "latex": "\\frac{2}{3}",
+    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <mfrac>\n    <mn>2</mn>\n    <mn>3</mn>\n  </mfrac>\n</math>",
+    "speech": "two thirds"
+  }
+]
+```
+
+### Advanced call
+
+```SHELL
+curl -s -X POST \
+ -H "Accept:application/json"  \
+ -H "Content-Type:application/json" \
+ -d '[{"latex":"\\frac{5}{4}"},{"latex":"\\sqrt{\\pi}"},{"latex":"\\mathbf{V}_1 \\times \\mathbf{V}_2 = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\frac{\\partial X}{\\partial u} & \\frac{\\partial Y}{\\partial u} & 0 \\\\ \\frac{\\partial X}{\\partial v} & \\frac{\\partial Y}{\\partial v} & 0 \\\\ \\end{vmatrix}"},{"latex":"\\frac{1}{3}"}]' \
+ 'http://127.0.0.1:48001/?locale=it&speech=deep&markup=ssml&modality=speech&style=Fraction_Auto:AbsoluteValue_Cardinality&domain=clearspeak'
+```
+
+### Advanced answer
+```JSON
+[
+  {
+    "latex": "\\frac{5}{4}",
+    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <mfrac>\n    <mn>5</mn>\n    <mn>4</mn>\n  </mfrac>\n</math>",
+    "speech": "<?xml version=\"1.0\"?><speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"><prosody rate=\"100%\"> cinque quarti </prosody></speak>"
+  },
+  {
+    "latex": "\\sqrt{\\pi}",
+    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <msqrt>\n    <mi>&#x3C0;</mi>\n  </msqrt>\n</math>",
+    "speech": "<?xml version=\"1.0\"?><speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"><prosody rate=\"100%\"> radice quadrata di pi greco <break time=\"250ms\"/> </prosody></speak>"
+  },
+  {
+    "latex": "\\mathbf{V}_1 \\times \\mathbf{V}_2 = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\frac{\\partial X}{\\partial u} & \\frac{\\partial Y}{\\partial u} & 0 \\\\ \\frac{\\partial X}{\\partial v} & \\frac{\\partial Y}{\\partial v} & 0 \\\\ \\end{vmatrix}",
+    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <msub>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mi mathvariant=\"bold\">V</mi>\n    </mrow>\n    <mn>1</mn>\n  </msub>\n  <mo>&#xD7;</mo>\n  <msub>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mi mathvariant=\"bold\">V</mi>\n    </mrow>\n    <mn>2</mn>\n  </msub>\n  <mo>=</mo>\n  <mrow data-mjx-texclass=\"INNER\">\n    <mo data-mjx-texclass=\"OPEN\">|</mo>\n    <mtable columnspacing=\"1em\" rowspacing=\"4pt\">\n      <mtr>\n        <mtd>\n          <mrow data-mjx-texclass=\"ORD\">\n            <mi mathvariant=\"bold\">i</mi>\n          </mrow>\n        </mtd>\n        <mtd>\n          <mrow data-mjx-texclass=\"ORD\">\n            <mi mathvariant=\"bold\">j</mi>\n          </mrow>\n        </mtd>\n        <mtd>\n          <mrow data-mjx-texclass=\"ORD\">\n            <mi mathvariant=\"bold\">k</mi>\n          </mrow>\n        </mtd>\n      </mtr>\n      <mtr>\n        <mtd>\n          <mfrac>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>X</mi>\n            </mrow>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>u</mi>\n            </mrow>\n          </mfrac>\n        </mtd>\n        <mtd>\n          <mfrac>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>Y</mi>\n            </mrow>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>u</mi>\n            </mrow>\n          </mfrac>\n        </mtd>\n        <mtd>\n          <mn>0</mn>\n        </mtd>\n      </mtr>\n      <mtr>\n        <mtd>\n          <mfrac>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>X</mi>\n            </mrow>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>v</mi>\n            </mrow>\n          </mfrac>\n        </mtd>\n        <mtd>\n          <mfrac>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>Y</mi>\n            </mrow>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>v</mi>\n            </mrow>\n          </mfrac>\n        </mtd>\n        <mtd>\n          <mn>0</mn>\n        </mtd>\n      </mtr>\n    </mtable>\n    <mo data-mjx-texclass=\"CLOSE\">|</mo>\n  </mrow>\n</math>",
+    "speech": "<?xml version=\"1.0\"?><speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"><prosody rate=\"100%\"> <break time=\"250ms\"/> <prosody pitch=\"+30%\"> V </prosody> grassetto <break time=\"250ms\"/> pedice 1 <break time=\"250ms\"/> per <break time=\"250ms\"/> <prosody pitch=\"+30%\"> V </prosody> grassetto <break time=\"250ms\"/> pedice 2 <break time=\"250ms\"/> uguale a determinante della matrice 3 per 3 <break time=\"750ms\"/> Riga 1: Colonna 1, i grassetto <break time=\"500ms\"/> Colonna 2, j grassetto <break time=\"500ms\"/> Colonna 3, k grassetto <break time=\"750ms\"/> Riga 2: Colonna 1, <break time=\"250ms\"/> frazione con numeratore derivata parziale <prosody pitch=\"+30%\"> X </prosody> <break time=\"250ms\"/> e denominatore derivata parziale u <break time=\"500ms\"/> Colonna 2, <break time=\"250ms\"/> frazione con numeratore derivata parziale <prosody pitch=\"+30%\"> Y </prosody> <break time=\"250ms\"/> e denominatore derivata parziale u <break time=\"500ms\"/> Colonna 3, 0 <break time=\"750ms\"/> Riga 3: Colonna 1, <break time=\"250ms\"/> frazione con numeratore derivata parziale <prosody pitch=\"+30%\"> X </prosody> <break time=\"250ms\"/> e denominatore derivata parziale v <break time=\"500ms\"/> Colonna 2, <break time=\"250ms\"/> frazione con numeratore derivata parziale <prosody pitch=\"+30%\"> Y </prosody> <break time=\"250ms\"/> e denominatore derivata parziale v <break time=\"500ms\"/> Colonna 3, 0 <break time=\"750ms\"/> </prosody></speak>"
+  },
+  {
+    "latex": "\\frac{1}{3}",
+    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <mfrac>\n    <mn>1</mn>\n    <mn>3</mn>\n  </mfrac>\n</math>",
+    "speech": "<?xml version=\"1.0\"?><speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"><prosody rate=\"100%\"> un terzo </prosody></speak>"
+  }
+]
+```
+
 
 ## HTTP client options
 
@@ -307,61 +391,3 @@ Detailed options for  _locale_, _modality_, _domain_ and _style_.
 |        | speech   | default    | default, defaultLibLouis, other, uncontracted |
 
 
-
-## CURL examples
-
-### simple call 
-```SHELL
-curl -s -X POST \
- -H "Accept:application/json"  \
- -H "Content-Type:application/json" \
- -d '[{"latex":"\\frac{2}{3}"}]' \
-  'http://127.0.0.1:48001/'
-```
-
-### Simple answer
-```JSON
-[
-  {
-    "latex": "\\frac{2}{3}",
-    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <mfrac>\n    <mn>2</mn>\n    <mn>3</mn>\n  </mfrac>\n</math>",
-    "speech": "two thirds"
-  }
-]
-```
-
-### Advanced call
-
-```SHELL
-curl -s -X POST \
- -H "Accept:application/json"  \
- -H "Content-Type:application/json" \
- -d '[{"latex":"\\frac{5}{4}"},{"latex":"\\sqrt{\\pi}"},{"latex":"\\mathbf{V}_1 \\times \\mathbf{V}_2 = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\frac{\\partial X}{\\partial u} & \\frac{\\partial Y}{\\partial u} & 0 \\\\ \\frac{\\partial X}{\\partial v} & \\frac{\\partial Y}{\\partial v} & 0 \\\\ \\end{vmatrix}"},{"latex":"\\frac{1}{3}"}]' \
- 'http://127.0.0.1:48001/?locale=it&speech=deep&markup=ssml&modality=speech&style=Fraction_Auto:AbsoluteValue_Cardinality&domain=clearspeak'
-```
-
-### Advanced answer
-```JSON
-[
-  {
-    "latex": "\\frac{5}{4}",
-    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <mfrac>\n    <mn>5</mn>\n    <mn>4</mn>\n  </mfrac>\n</math>",
-    "speech": "<?xml version=\"1.0\"?><speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"><prosody rate=\"100%\"> cinque quarti </prosody></speak>"
-  },
-  {
-    "latex": "\\sqrt{\\pi}",
-    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <msqrt>\n    <mi>&#x3C0;</mi>\n  </msqrt>\n</math>",
-    "speech": "<?xml version=\"1.0\"?><speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"><prosody rate=\"100%\"> radice quadrata di pi greco <break time=\"250ms\"/> </prosody></speak>"
-  },
-  {
-    "latex": "\\mathbf{V}_1 \\times \\mathbf{V}_2 = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\frac{\\partial X}{\\partial u} & \\frac{\\partial Y}{\\partial u} & 0 \\\\ \\frac{\\partial X}{\\partial v} & \\frac{\\partial Y}{\\partial v} & 0 \\\\ \\end{vmatrix}",
-    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <msub>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mi mathvariant=\"bold\">V</mi>\n    </mrow>\n    <mn>1</mn>\n  </msub>\n  <mo>&#xD7;</mo>\n  <msub>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mi mathvariant=\"bold\">V</mi>\n    </mrow>\n    <mn>2</mn>\n  </msub>\n  <mo>=</mo>\n  <mrow data-mjx-texclass=\"INNER\">\n    <mo data-mjx-texclass=\"OPEN\">|</mo>\n    <mtable columnspacing=\"1em\" rowspacing=\"4pt\">\n      <mtr>\n        <mtd>\n          <mrow data-mjx-texclass=\"ORD\">\n            <mi mathvariant=\"bold\">i</mi>\n          </mrow>\n        </mtd>\n        <mtd>\n          <mrow data-mjx-texclass=\"ORD\">\n            <mi mathvariant=\"bold\">j</mi>\n          </mrow>\n        </mtd>\n        <mtd>\n          <mrow data-mjx-texclass=\"ORD\">\n            <mi mathvariant=\"bold\">k</mi>\n          </mrow>\n        </mtd>\n      </mtr>\n      <mtr>\n        <mtd>\n          <mfrac>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>X</mi>\n            </mrow>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>u</mi>\n            </mrow>\n          </mfrac>\n        </mtd>\n        <mtd>\n          <mfrac>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>Y</mi>\n            </mrow>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>u</mi>\n            </mrow>\n          </mfrac>\n        </mtd>\n        <mtd>\n          <mn>0</mn>\n        </mtd>\n      </mtr>\n      <mtr>\n        <mtd>\n          <mfrac>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>X</mi>\n            </mrow>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>v</mi>\n            </mrow>\n          </mfrac>\n        </mtd>\n        <mtd>\n          <mfrac>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>Y</mi>\n            </mrow>\n            <mrow>\n              <mi>&#x2202;</mi>\n              <mi>v</mi>\n            </mrow>\n          </mfrac>\n        </mtd>\n        <mtd>\n          <mn>0</mn>\n        </mtd>\n      </mtr>\n    </mtable>\n    <mo data-mjx-texclass=\"CLOSE\">|</mo>\n  </mrow>\n</math>",
-    "speech": "<?xml version=\"1.0\"?><speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"><prosody rate=\"100%\"> <break time=\"250ms\"/> <prosody pitch=\"+30%\"> V </prosody> grassetto <break time=\"250ms\"/> pedice 1 <break time=\"250ms\"/> per <break time=\"250ms\"/> <prosody pitch=\"+30%\"> V </prosody> grassetto <break time=\"250ms\"/> pedice 2 <break time=\"250ms\"/> uguale a determinante della matrice 3 per 3 <break time=\"750ms\"/> Riga 1: Colonna 1, i grassetto <break time=\"500ms\"/> Colonna 2, j grassetto <break time=\"500ms\"/> Colonna 3, k grassetto <break time=\"750ms\"/> Riga 2: Colonna 1, <break time=\"250ms\"/> frazione con numeratore derivata parziale <prosody pitch=\"+30%\"> X </prosody> <break time=\"250ms\"/> e denominatore derivata parziale u <break time=\"500ms\"/> Colonna 2, <break time=\"250ms\"/> frazione con numeratore derivata parziale <prosody pitch=\"+30%\"> Y </prosody> <break time=\"250ms\"/> e denominatore derivata parziale u <break time=\"500ms\"/> Colonna 3, 0 <break time=\"750ms\"/> Riga 3: Colonna 1, <break time=\"250ms\"/> frazione con numeratore derivata parziale <prosody pitch=\"+30%\"> X </prosody> <break time=\"250ms\"/> e denominatore derivata parziale v <break time=\"500ms\"/> Colonna 2, <break time=\"250ms\"/> frazione con numeratore derivata parziale <prosody pitch=\"+30%\"> Y </prosody> <break time=\"250ms\"/> e denominatore derivata parziale v <break time=\"500ms\"/> Colonna 3, 0 <break time=\"750ms\"/> </prosody></speak>"
-  },
-  {
-    "latex": "\\frac{1}{3}",
-    "mml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">\n  <mfrac>\n    <mn>1</mn>\n    <mn>3</mn>\n  </mfrac>\n</math>",
-    "speech": "<?xml version=\"1.0\"?><speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"><prosody rate=\"100%\"> un terzo </prosody></speak>"
-  }
-]
-```
