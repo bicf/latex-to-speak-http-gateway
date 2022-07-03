@@ -5,3 +5,4 @@ yarn-error.log
 .gitignore
 Dockerfile
 .dockerignore
+index.js
